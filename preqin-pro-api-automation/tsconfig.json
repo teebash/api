@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "typeRoots": [
+      "./node_modules/@types/"
+    ],
+    "types": [
+      "node",
+      "mocha"
+    ],
+    "lib": [
+      "es2017.object",
+      "dom",
+      "es7",
+      "scripthost"
+    ]
+  },
+  "compileOnSave": true,
+  "exclude": [
+    "node_modules/*",
+    "typings",
+    "**/*-aot.ts"
+  ]
+}
