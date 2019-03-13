@@ -1,36 +1,94 @@
-import { Consultant } from "./consultantClass";
-import { JsonObject, JsonProperty } from "json2typescript";
+import { JsonObject, JsonProperty, Any } from 'json2typescript';
+
+@JsonObject("Assets")
+export class Assets {
+
+    @JsonProperty("AssetClass", String)
+    private _AssetClass?: string = undefined;
+
+    public get AssetClass(): string {
+        return this._AssetClass;
+    }
+    public set AssetClass(value: string) {
+        this._AssetClass = value;
+    }
+
+    @JsonProperty("Service", Any)
+    Service?: any = undefined;
+};
+
+@JsonObject("AssetTypes")
+export class AssetTypes {
+
+    @JsonProperty("AssetTypes", [Assets])
+    private _AssetTypes?: Assets[] = undefined;
+
+    public get AssetTypes(): Assets[] {
+        return this._AssetTypes;
+    }
+    public set AssetTypes(value: Assets[]) {
+        this._AssetTypes = value;
+    }
+};
+
+@JsonObject("Clients")
+export class Clients {
+
+    @JsonProperty("Clients", [AssetTypes])
+    private _Clients?: AssetTypes[] = undefined;
+
+    public get Clients(): AssetTypes[] {
+        return this._Clients;
+    }
+    public set Clients(value: AssetTypes[]) {
+        this._Clients = value;
+    }
+};
+
+@JsonObject("Consultant")
+export class Consultant {
+
+    @JsonProperty("Consultant", Clients)
+    private _Consultant?: Clients = undefined;
+
+    public get Consultant(): Clients {
+        return this._Consultant;
+    }
+    public set Consultant(value: Clients) {
+        this._Consultant = value;
+    }
+};
 
 @JsonObject("Profile")
 export class Profile {
 
     @JsonProperty("FirmName", String)
-    FirmName: string = "";
+    private _FirmName?: string = undefined;
+
+    public get FirmName(): string {
+        return this._FirmName;
+    }
+    public set FirmName(value: string) {
+        this._FirmName = value;
+    }
 
     @JsonProperty("AggregateID", Number)
-    AggregateID: number = 0;
+    private _AggregateID?: number = undefined;
 
-    @JsonProperty("Consultant", Consultant)
-    Consultant: Consultant;
+    public get AggregateID(): number {
+        return this._AggregateID;
+    }
+    public set AggregateID(value: number) {
+        this._AggregateID = value;
+    }
 
-    // @JsonProperty("FirmName", String)
-    // private _firmName: string = "";
+    @JsonProperty("Consultant", Clients)
+    private _Consultant?: Clients = undefined;
 
-    // get FirmName() { return this._firmName; }
-    // set FirmName(value: string) { this._firmName = value; }
-
-    // @JsonProperty("AggregateID", Number)
-    // private _aggregateID: number = 0;
-
-    // get AggregateID() { return this._aggregateID; }
-    // set AggregateID(value: number) { this._aggregateID = value; }
-
-    // @JsonProperty("consultants", Consultant)
-    // consultants: Consultant;
-
-    // @JsonProperty("Consultant", Consultant)
-    // private _consultant: Consultant;
-
-    // get Consultant() { return this._consultant; }
-    // set Consultant(value: Consultant) { this._consultant = value; }
-}
+    public get Consultant(): Clients {
+        return this._Consultant;
+    }
+    public set Consultant(value: Clients) {
+        this._Consultant = value;
+    }
+};

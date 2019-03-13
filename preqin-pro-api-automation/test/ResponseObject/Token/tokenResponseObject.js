@@ -12,10 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const json2typescript_1 = require("json2typescript");
 let AccessToken = class AccessToken {
     constructor() {
-        this._access_token = "";
-        this._expires_in = 0;
-        this._token_type = "";
-        this._refresh_token = "";
+        this._access_token = undefined;
+        this._expires_in = undefined;
+        this._token_type = undefined;
+        this._refresh_token = undefined;
     }
     get access_token() { return this._access_token; }
     set access_token(value) { this._access_token = value; }

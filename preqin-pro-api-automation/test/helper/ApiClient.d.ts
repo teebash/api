@@ -1,5 +1,5 @@
 export default class ApiClient {
     Init(): Promise<any>;
-    Get(endPoint: string, options?: any): Promise<any>;
-    Post(endPoint: string, payload?: any, options?: any): Promise<any>;
+    Get<T>(endPoint: string, statusCode: number, responseObject: new () => T, options?: any): Promise<T>;
+    Post<T>(endPoint: string, statusCode: number, responseObject: new () => T, payload?: any, options?: any): Promise<T>;
 }
