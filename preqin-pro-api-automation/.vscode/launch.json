@@ -7,28 +7,13 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Mocha Tests",
-            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-            "args": [
-                "-u",
-                "tdd",
-                "--timeout",
-                "999999",
-                "--colors",
-                "${workspaceFolder}/test/httpTests.js"
-            ],
-            "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Debug Protractor",
-            "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
+            "name": "Debug Test",
+            "program": "${workspaceRoot}/node_modules/cucumber/bin/cucumber-js",
             "cwd": "${workspaceFolder}",
             "stopOnEntry": false,
-            "args": [
-                "${workspaceRoot}/Congfiguration/config.js"
-            ],
+            // "args": [
+            //     "${workspaceRoot}/Configuration/Config.js"
+            // ],
             "outFiles": [
                 "${workspaceRoot}/out/**/*.js"
             ]
