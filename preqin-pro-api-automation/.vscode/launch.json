@@ -5,17 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Debug Test",
             "type": "node",
             "request": "launch",
-            "name": "Debug Test",
             "program": "${workspaceRoot}/node_modules/cucumber/bin/cucumber-js",
-            "cwd": "${workspaceFolder}",
-            "stopOnEntry": false,
-            // "args": [
-            //     "${workspaceRoot}/Configuration/Config.js"
-            // ],
-            "outFiles": [
-                "${workspaceRoot}/out/**/*.js"
+            "args": [
+                "TestFeatures/**/*.feature",
+                "-r",
+                "TestFeatures/**/StepDefinition/*.js",
+                "--tags",
+                "@demo"
             ]
         }
     ]

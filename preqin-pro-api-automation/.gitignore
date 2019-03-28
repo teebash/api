@@ -1,0 +1,12 @@
+/node_modules
+/HtmlReports/cucumber_report.html
+/HtmlReports/cucumber_report.json
+/.vs
+.orig
+.log
+.png
+/debug.log
+.js
+.map
+.d.ts
+/Test

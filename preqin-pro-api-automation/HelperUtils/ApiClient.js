@@ -19,8 +19,8 @@ let jsonConvert = new json2typescript_1.JsonConvert();
 // jsonConvert.operationMode = OperationMode.LOGGING;
 // jsonConvert.operationMode = OperationMode.DISABLE;
 // jsonConvert.valueCheckingMode = ValueCheckingMode.DISALLOW_NULL;
-jsonConvert.valueCheckingMode = json2typescript_1.ValueCheckingMode.ALLOW_OBJECT_NULL;
-jsonConvert.valueCheckingMode = json2typescript_1.ValueCheckingMode.ALLOW_NULL;
+// jsonConvert.valueCheckingMode = ValueCheckingMode.ALLOW_OBJECT_NULL;
+// jsonConvert.valueCheckingMode = ValueCheckingMode.ALLOW_NULL;
 jsonConvert.ignorePrimitiveChecks = false;
 let uri = "https://magenta.dev.pro.preqin.com/";
 class ApiClient {
@@ -38,7 +38,7 @@ class ApiClient {
             yield request_promise_native_1.default.get(uri + endPoint, options, function (err, httpResponse, body) {
                 return __awaiter(this, void 0, void 0, function* () {
                     if (httpResponse.statusCode !== statusCode) {
-                        console.error(`Get request failed with the following statusCode and statusMessage respectivetly: ', ${httpResponse.statusCode} ${httpResponse.statusMessage}`);
+                        console.error(`Get request failed with the following statusCode : ${httpResponse.statusCode} and statusMessage : ${httpResponse.statusMessage}`);
                         throw err;
                     }
                     else {
@@ -60,8 +60,8 @@ class ApiClient {
     Post(endPoint, requestBody = {}, statusCode, responseObject, options = {}) {
         return __awaiter(this, void 0, void 0, function* () {
             accessTokenResponseObject = yield this.Init();
-            let response;
-            let responseObj;
+            let response = undefined;
+            let responseObj = undefined;
             if (!options.headers) {
                 options.headers = {};
             }
@@ -72,7 +72,7 @@ class ApiClient {
             yield request_promise_native_1.default.post(uri + endPoint, options, function (err, httpResponse, body) {
                 return __awaiter(this, void 0, void 0, function* () {
                     if (httpResponse.statusCode !== statusCode) {
-                        console.error(`Post request failed with the following statusCode and statusMessage respectivetly: ', ${httpResponse.statusCode} ${httpResponse.statusMessage}`);
+                        console.error(`Post request failed with the following statusCode : ${httpResponse.statusCode} and statusMessage : ${httpResponse.statusMessage}`);
                         throw err;
                     }
                     else {

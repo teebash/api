@@ -9,18 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const cucumber_1 = require("cucumber");
-const ApiClient_1 = require("../HelperUtils/ApiClient");
-let apiClient = new ApiClient_1.ApiClient();
 cucumber_1.setDefaultTimeout(10000);
+cucumber_1.BeforeAll(() => __awaiter(this, void 0, void 0, function* () {
+    // await console.log("Verify BeforeAll scenario was called in the right order");
+}));
 cucumber_1.Before(() => __awaiter(this, void 0, void 0, function* () {
-    // return await apiClient.Init();
+    // await console.log("verify Before scenario  was called in the right order");
 }));
 cucumber_1.After(function (Scenario) {
     return __awaiter(this, void 0, void 0, function* () {
-        if (Scenario.result.status === cucumber_1.Status.FAILED) {
-            yield console.error("something failed");
-        }
-        ;
+        // await console.log("verify After scenario  was called in the right order");
+    });
+});
+cucumber_1.AfterAll(function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        // await console.log("verify AfterAll scenario  was called in the right order");
     });
 });
 //# sourceMappingURL=ScenarioHooks.js.map

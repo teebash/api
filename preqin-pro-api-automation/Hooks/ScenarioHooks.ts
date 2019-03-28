@@ -1,19 +1,23 @@
 import { BeforeAll, After, AfterAll, setDefaultTimeout, Status, Before } from 'cucumber';
-import { ApiClient } from '../HelperUtils/ApiClient';
-
-let apiClient = new ApiClient();
 
 setDefaultTimeout(10000);
 
+BeforeAll(async () => {
+
+    // await console.log("Verify BeforeAll scenario was called in the right order");
+});
+
 Before(async () => {
 
-    // return await apiClient.Init();
+    // await console.log("verify Before scenario  was called in the right order");
 });
 
 After(async function (Scenario) {
 
-    if (Scenario.result.status === Status.FAILED) {
+    // await console.log("verify After scenario  was called in the right order");
+});
 
-        await console.error("something failed");
-    };
+AfterAll(async function () {
+
+    // await console.log("verify AfterAll scenario  was called in the right order");
 });

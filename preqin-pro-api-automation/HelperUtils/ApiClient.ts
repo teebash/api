@@ -7,8 +7,8 @@ let jsonConvert: JsonConvert = new JsonConvert();
 // jsonConvert.operationMode = OperationMode.LOGGING;
 // jsonConvert.operationMode = OperationMode.DISABLE;
 // jsonConvert.valueCheckingMode = ValueCheckingMode.DISALLOW_NULL;
-jsonConvert.valueCheckingMode = ValueCheckingMode.ALLOW_OBJECT_NULL;
-jsonConvert.valueCheckingMode = ValueCheckingMode.ALLOW_NULL;
+// jsonConvert.valueCheckingMode = ValueCheckingMode.ALLOW_OBJECT_NULL;
+// jsonConvert.valueCheckingMode = ValueCheckingMode.ALLOW_NULL;
 jsonConvert.ignorePrimitiveChecks = false;
 
 let uri = "https://magenta.dev.pro.preqin.com/";
@@ -33,7 +33,7 @@ export class ApiClient {
 
             if (httpResponse.statusCode !== statusCode) {
 
-                console.error(`Get request failed with the following statusCode and statusMessage respectivetly: ', ${httpResponse.statusCode} ${httpResponse.statusMessage}`);
+                console.error(`Get request failed with the following statusCode : ${httpResponse.statusCode} and statusMessage : ${httpResponse.statusMessage}`);
                 throw err;
 
             } else {
@@ -57,8 +57,8 @@ export class ApiClient {
     public async Post<T>(endPoint: string, requestBody: any = {}, statusCode: number, responseObject?: new () => T, options: any = {}): Promise<T> {
 
         accessTokenResponseObject = await this.Init();
-        let response;
-        let responseObj;
+        let response = undefined;
+        let responseObj = undefined;
 
         if (!options.headers) {
             options.headers = {};
@@ -73,7 +73,7 @@ export class ApiClient {
 
             if (httpResponse.statusCode !== statusCode) {
 
-                console.error(`Post request failed with the following statusCode and statusMessage respectivetly: ', ${httpResponse.statusCode} ${httpResponse.statusMessage}`);
+                console.error(`Post request failed with the following statusCode : ${httpResponse.statusCode} and statusMessage : ${httpResponse.statusMessage}`);
                 throw err;
 
             } else {

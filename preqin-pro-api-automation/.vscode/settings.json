@@ -1,8 +1,8 @@
 {    
     "cucumberautocomplete.steps": [
-       "Features/*.ts"
+       "TestFeatures/**/*.ts"
     ],
-    "cucumberautocomplete.syncfeatures": "Features/*.feature", 
+    "cucumberautocomplete.syncfeatures": "TestFeatures/**/*.feature", 
     "cucumberautocomplete.strictGherkinCompletion": true,
     "cucumberautocomplete.smartSnippets": true,
     "cucumberautocomplete.customParameters": [

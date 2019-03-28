@@ -56,34 +56,28 @@ exports.RootObject = RootObject;
 class SearchRequestObject {
     CreateSearchRequestObject(page, size, sortBy, sortOrder, category, newFilters) {
         return __awaiter(this, void 0, void 0, function* () {
-            var searchObjectValues = new RootObject();
-            let column = [
-                "id",
-                "checkBox",
-                "currency",
-                "name",
-                "addressDetails.city",
-                "addressDetails.country",
-                "fundManagerDetails.pE.overallInvestmentCriteria.strategies",
-                "fundManagerDetails.snapshots.PE.totalCapitalRaised.usdMn",
-                "fundManagerDetails.snapshots.PE.estimatedDryPowder.usdMn",
-                "fundManagerDetails.rE.preferences.strategies",
-                "fundManagerDetails.snapshots.RE.totalCapitalRaised.usdMn",
-                "fundManagerDetails.snapshots.RE.estimatedDryPowder.usdMn",
-                "fundManagerDetails.pD.overallInvestmentCriteria.strategies",
-                "fundManagerDetails.snapshots.PD.totalCapitalRaised.usdMn",
-                "fundManagerDetails.snapshots.PD.estimatedDryPowder.usdMn",
-                "fundManagerDetails.nR.preferences.strategies",
-                "fundManagerDetails.snapshots.NR.totalCapitalRaised.usdMn",
-                "fundManagerDetails.snapshots.NR.estimatedDryPowder.usdMn",
-                "fundManagerDetails.iNF.primaryStrategies",
-                "fundManagerDetails.snapshots.INF.totalCapitalRaised.usdMn",
-                "fundManagerDetails.snapshots.INF.estimatedDryPowder.usdMn",
-                "fundManagerDetails.hF.category",
-                "fundManagerDetails.funds",
-                "fundManagerDetails.hF.coreStrategies",
-                "fundManagerDetails.snapshots.HF.aUM.localMn"
-            ];
+            let column = undefined;
+            let searchObjectValues = new RootObject();
+            if (category === "FundManager") {
+                column = [
+                    "id",
+                    "checkBox",
+                    "currency",
+                    "name",
+                    "addressDetails.city",
+                    "addressDetails.country"
+                ];
+            }
+            else if (category === "Investor") {
+                column = [
+                    "id",
+                    "checkBox",
+                    "currency",
+                    "name",
+                    "addressDetails.city",
+                    "addressDetails.country",
+                ];
+            }
             searchObjectValues.Columns = column;
             searchObjectValues.Page = page;
             searchObjectValues.Size = size;
